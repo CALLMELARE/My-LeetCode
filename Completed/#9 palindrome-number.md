@@ -2,7 +2,7 @@
 
 ## Language
 
-`JavaScript`
+`JavaScript` `Java`
 
 ## Description
 
@@ -33,6 +33,8 @@ Last, return in boolean.
 
 ## Solution
 
+`JavaScript`
+
 ```js
 /**
  * @param {number} x
@@ -49,4 +51,21 @@ var isPalindrome = function (x) {
     }
     return x === rev || x === Math.floor(rev / 10);
 };
+```
+
+`Java`
+
+```java
+class Solution {
+    public boolean isPalindrome(int x) {
+          if (x<0 || (x!=0 && x%10==0)) return false;
+        int rev = 0;
+        while (x>rev){
+            rev = rev*10 + x%10;
+            x = x/10;
+        }
+        return (x==rev || x==rev/10);
+
+    }
+}
 ```

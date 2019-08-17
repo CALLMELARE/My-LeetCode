@@ -1,27 +1,21 @@
 /**
  * @param {string} s
- * @return {number}
+ * @return {boolean}
  */
-var romanToInt = function (s) {
-    let romans = {
-        "I": 1,
-        "V": 5,
-        "X": 10,
-        "L": 50,
-        "C": 100,
-        "D": 500,
-        "M": 1000,
+var isValid = function (s) {
+    if (s.length == 0) {
+        return true
     }
-
-    let sum = romans[s[0]];
-    for (let i = 1; i < s.length; i++) {
-        let temp = 0;
-        if (romans[s[i]] > romans[s[i - 1]]) {
-            temp = romans[s[i]] - 2 * romans[s[i - 1]];
-        } else if (romans[s[i]] <= romans[s[i - 1]]) {
-            temp = romans[s[i]];
+    let stack = [];
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] === '(' || s[i] === '[' || s[i] === '{') {
+            stack.push(s[i])
+        } else if (s[i] === ')') {
+            result = result && stack.length !== 0 && '(' === stack.pop();
+        } else if (s[i] === ']') {
+            result = result && stack.length !== 0 && '[' === stack.pop();
+        } else if (s[i] === '}') {
+            result = result && stack.length !== 0 && '{' === stack.pop();
         }
-        sum += temp;
     }
-    return sum;
 };

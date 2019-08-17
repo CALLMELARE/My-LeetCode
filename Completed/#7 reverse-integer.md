@@ -2,7 +2,7 @@
 
 ## Language
 
-`JavaScript`
+`JavaScript` `Java`
 
 ## Description
 
@@ -33,6 +33,8 @@ Besides, we reverse the number `x` by read and traverse as string reversed.
 
 ## Solution
 
+`JavaScript`
+
 ```js
 /**
  * @param {number} x
@@ -48,4 +50,22 @@ var reverse = function(x) {
     }
     return parseInt(Math.abs(ans)>(2**31-1)?len=0:(x<0?-ans:ans));
 };
+```
+
+`Java`
+
+```java
+class Solution {
+    public int reverse(int x) {
+         long rev= 0;
+        while( x != 0){
+            rev= rev*10 + x % 10;
+            x= x/10;
+            if( rev > Integer.MAX_VALUE || rev < Integer.MIN_VALUE)
+                return 0;
+        }
+        return (int) rev;
+
+    }
+}
 ```
