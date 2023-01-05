@@ -5,20 +5,21 @@
  */
 
 // @lc code=start
-class Solution {
+class Solution
+{
 public:
-    int removeElement(vector<int>& nums, int val) {
-        int count = 0;
-        for(int i = 0; i < nums.size();i++){
-            if(nums[i] == val){
-                count++;
-            }
-            if(count > 0 && i+count<= nums.size()){
-                nums[i]=nums[i+count];
+    int removeElement(vector<int> &nums, int val)
+    {
+        int p = 0;
+        for (int i = 0; i < nums.size(); i++)
+        {
+            if (nums[i] != val)
+            {
+                // merge value from i to p
+                nums[p++] = nums[i];
             }
         }
-        return count;
+        return p;
     }
 };
 // @lc code=end
-
