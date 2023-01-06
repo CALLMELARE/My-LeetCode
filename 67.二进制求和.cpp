@@ -10,18 +10,19 @@ class Solution
 public:
     string addBinary(string a, string b)
     {
-        int len = max(a.size(), b.size());
-        int u = 0;
         reverse(a.begin(), a.end());
         reverse(b.begin(), b.end());
-        for (int i = 0; i < len; i++)
+
+        int n = max(a.size(), b.size()), p = 0;
+        for (size_t i = 0; i < n; ++i)
         {
-            u += i < a.size() ? (a.at(i) == '1') : 0;
-            u += i < b.size() ? (b.at(i) == '1') : 0;
-            ans.push_back((u % 2) ? '1' : '0');
-            u /= 2;
+            p += i < a.size() ? (a.at(i) == '1') : 0;
+            p += i < b.size() ? (b.at(i) == '1') : 0;
+            ans.push_back((p % 2) ? '1' : '0');
+            p /= 2;
         }
-        if (u)
+
+        if (p)
         {
             ans.push_back('1');
         }
