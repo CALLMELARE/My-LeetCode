@@ -9,16 +9,15 @@
  * @param {number} n
  * @return {number}
  */
+
+// dp[i] = dp[i-1]+dp[i-2]
 var climbStairs = function (n) {
-  if (n <= 2) return n;
-  let prev1 = 1;
-  let prev2 = 2;
-  let curr = 0;
+  const dp = new Array(n + 1).fill(null);
+  dp[1] = 1;
+  dp[2] = 2;
   for (let i = 3; i <= n; i++) {
-    curr = prev1 + prev2;
-    prev1 = prev2;
-    prev2 = curr;
+    dp[i] = dp[i - 1] + dp[i - 2];
   }
-  return curr;
+  return dp[n];
 };
 // @lc code=end
